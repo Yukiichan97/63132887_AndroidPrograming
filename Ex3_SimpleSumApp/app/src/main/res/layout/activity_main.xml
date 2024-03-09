@@ -38,7 +38,6 @@
         android:layout_marginEnd="60dp"
         android:ems="10"
         android:inputType="number"
-        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textViewA"
@@ -49,32 +48,67 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="303dp"
+        android:layout_marginTop="496dp"
         android:layout_marginEnd="29dp"
         android:ems="10"
+        android:enabled="true"
         android:inputType="number"
         android:text=""
-        android:enabled="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textViewKetQua"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnTong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/btnCong"
+        android:layout_width="115dp"
+        android:layout_height="56dp"
         android:layout_marginTop="233dp"
-        android:text="Tính Tổng"
+        android:text="+"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="XuLyCong"
+        />
+    <Button
+        android:id="@+id/btnTru"
+        android:layout_width="115dp"
+        android:layout_height="56dp"
+        android:text="-"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCong"
+        android:onClick="XuLyTru"
+        />
+
+    <Button
+        android:id="@+id/btnNhan"
+        android:layout_width="115dp"
+        android:layout_height="56dp"
+        android:text="X"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTru"
+        android:onClick="XuLyNhan"
+        />
+
+    <Button
+        android:id="@+id/btnChia"
+        android:layout_width="115dp"
+        android:layout_height="56dp"
+        android:text="/"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNhan"
+        android:onClick="XyLyChia"
+        />
 
     <TextView
         android:id="@+id/textViewKetQua"
         android:layout_width="95dp"
         android:layout_height="46dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="303dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="496dp"
         android:text="Kết Quả:"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
