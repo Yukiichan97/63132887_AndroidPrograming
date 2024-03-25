@@ -55,6 +55,16 @@ public class Activity extends JFrame {
 		txtMorseCode.setColumns(10);
 		txtMorseCode.setBounds(285, 110, 214, 31);
 		contentPane.add(txtMorseCode);
+		
+		JLabel txtMSSV = new JLabel("MSSV: 63132887");
+		txtMSSV.setFont(new Font("JetBrains Mono", Font.PLAIN, 16));
+		txtMSSV.setBounds(39, 178, 214, 31);
+		contentPane.add(txtMSSV);
+		
+		JLabel txtHoVaTen = new JLabel("Họ và tên: Phạm Nguyễn Hoài Minh");
+		txtHoVaTen.setFont(new Font("JetBrains Mono", Font.PLAIN, 16));
+		txtHoVaTen.setBounds(285, 178, 334, 31);
+		contentPane.add(txtHoVaTen);
 
 		txtChuoi.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
