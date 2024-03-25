@@ -28,6 +28,6 @@ public class AboutFragment extends Fragment {
     private void goLink(String s) {
         Uri uri = Uri.parse(s);
         startActivity(new Intent(Intent.ACTION_VIEW, uri));
-
+        System.out.println("Opened Link");
     }
 }
