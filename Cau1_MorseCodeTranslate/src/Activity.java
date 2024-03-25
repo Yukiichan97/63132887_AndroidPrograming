@@ -1,30 +1,58 @@
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Activity extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-
-
+	private JTextField txtTK;
+	private JTextField txtMK;
+	
 	/**
 	 * Create the frame.
 	 */
 	public Activity() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 598, 414);
+		setBounds(100, 100, 663, 394);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lbTK = new JLabel("Nhập chuỗi:");
+		lbTK.setFont(new Font("JetBrains Mono", Font.PLAIN, 16));
+		lbTK.setBounds(39, 45, 214, 31);
+		contentPane.add(lbTK);
+		
+		JLabel lbMK = new JLabel("Nhập mã Morse:");
+		lbMK.setFont(new Font("JetBrains Mono", Font.PLAIN, 16));
+		lbMK.setBounds(39, 110, 214, 31);
+		contentPane.add(lbMK);
+		
+		txtTK = new JTextField();
+		txtTK.setFont(new Font("JetBrains Mono", Font.PLAIN, 16));
+		txtTK.setColumns(10);
+		txtTK.setBounds(285, 45, 214, 31);
+		contentPane.add(txtTK);
+		
+		txtMK = new JTextField();
+		txtMK.setFont(new Font("JetBrains Mono", Font.PLAIN, 16));
+		txtMK.setColumns(10);
+		txtMK.setBounds(285, 110, 214, 31);
+		contentPane.add(txtMK);
 	}
-
+	
+	
 }
