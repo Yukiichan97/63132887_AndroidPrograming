@@ -70,13 +70,10 @@ public class Morse {
                 morseCode.append(" ");
             }
         }
-
         return morseCode.toString().trim();
     }
-
     public static String morseCodeToString(String morseCode) {
         StringBuilder result = new StringBuilder();
-
         String[] words = morseCode.split("\\s+");
         for (String word : words) {
             String[] letters = word.split("\\s+");
@@ -90,7 +87,6 @@ public class Morse {
             }
             result.append(" ");
         }
-
         return result.toString().trim();
     }
 }
