@@ -1,93 +1,62 @@
 package ntu.minh63132887;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.widget.EditText;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import com.google.android.material.navigation.NavigationView;
 
-import kotlin.text.UStringsKt;
-
-public class MainActivity extends AppCompatActivity {
-    private EditText alphabet;
-    private EditText morse;
-    private String alphabet_str;
-    private String morse_str;
-    private boolean _alphabetChanged;
-    private boolean _morseChanged;
-
-    private boolean isNullorEmpty(String a){
-        if(a.isEmpty()){
-            return true;
-        }
-        return false;
-    }
-
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        morse = findViewById(R.id.editTextMorseCode);
-        alphabet = findViewById(R.id.TextAlphabet);
-
-        alphabet.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(isNullorEmpty(morse.getText().toString()) && isNullorEmpty(alphabet.getText().toString())) return;
-
-                if(!_morseChanged){
-                    _alphabetChanged = true;
-                    alphabet_str = s.toString();
-                    morse_str = Morse.stringToMorseCode(alphabet_str);
-                    morse.setText(morse_str);
-                    _alphabetChanged = false;
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-        morse.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(isNullorEmpty(morse.getText().toString()) && isNullorEmpty(alphabet.getText().toString())) return;
-
-                if(!_alphabetChanged){
-                    _morseChanged = true;
-                    morse_str = s.toString();
-                    alphabet_str = Morse.morseCodeToString(morse_str);
-                    alphabet.setText(alphabet_str);
-                    _morseChanged = false;
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        Toolbar toolbar = findViewById(R.id.toolbar); //Ignore red line errors
+        setSupportActionBar(toolbar);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav,
+                R.string.close_nav);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_home);
+        }
     }
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.nav_home:
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+//                break;
+//
+//            case R.id.navigation_about:
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AboutFragment()).commit();
+//                break;
+//            case R.id.navigation_exit:
+//                this.finishAffinity();
+//                break;
+//        }
+        if (item.getItemId() == R.id.nav_home){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+        }
+        else if (item.getItemId() == R.id.navigation_about){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AboutFragment()).commit();
+        }
+        else if (item.getItemId() == R.id.navigation_exit){
+            this.finishAffinity();
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
 }
+
