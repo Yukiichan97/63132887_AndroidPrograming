@@ -19,7 +19,7 @@ public class AboutFragment extends Fragment {
         githubButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goLink("https://github.com/Yukiichan97/");
+                goLink("https://github.com/Yukiichan97/63132887_AndroidPrograming");
             }
         });
 
