@@ -16,8 +16,8 @@ public class Activity extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
-    private JTextField txtTK;
-    private JTextField txtMK;
+    private JTextField txtChuoi;
+    private JTextField txtMorseCode;
     private boolean _txtTKChanged;
     private boolean _txtMKChanged;
 
@@ -33,29 +33,29 @@ public class Activity extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lbTK = new JLabel("Nhập chuỗi:");
-		lbTK.setFont(new Font("JetBrains Mono", Font.PLAIN, 16));
-		lbTK.setBounds(39, 45, 214, 31);
-		contentPane.add(lbTK);
+		JLabel lbChuoi = new JLabel("Nhập chuỗi:");
+		lbChuoi.setFont(new Font("JetBrains Mono", Font.PLAIN, 16));
+		lbChuoi.setBounds(39, 45, 214, 31);
+		contentPane.add(lbChuoi);
 
-		JLabel lbMK = new JLabel("Nhập mã Morse:");
-		lbMK.setFont(new Font("JetBrains Mono", Font.PLAIN, 16));
-		lbMK.setBounds(39, 110, 214, 31);
-		contentPane.add(lbMK);
+		JLabel lbMorseCode = new JLabel("Nhập mã Morse:");
+		lbMorseCode.setFont(new Font("JetBrains Mono", Font.PLAIN, 16));
+		lbMorseCode.setBounds(39, 110, 214, 31);
+		contentPane.add(lbMorseCode);
 
-		txtTK = new JTextField();
-		txtTK.setFont(new Font("JetBrains Mono", Font.PLAIN, 16));
-		txtTK.setColumns(10);
-		txtTK.setBounds(285, 45, 214, 31);
-		contentPane.add(txtTK);
+		txtChuoi = new JTextField();
+		txtChuoi.setFont(new Font("JetBrains Mono", Font.PLAIN, 16));
+		txtChuoi.setColumns(10);
+		txtChuoi.setBounds(285, 45, 214, 31);
+		contentPane.add(txtChuoi);
 
-		txtMK = new JTextField();
-		txtMK.setFont(new Font("JetBrains Mono", Font.PLAIN, 16));
-		txtMK.setColumns(10);
-		txtMK.setBounds(285, 110, 214, 31);
-		contentPane.add(txtMK);
+		txtMorseCode = new JTextField();
+		txtMorseCode.setFont(new Font("JetBrains Mono", Font.PLAIN, 16));
+		txtMorseCode.setColumns(10);
+		txtMorseCode.setBounds(285, 110, 214, 31);
+		contentPane.add(txtMorseCode);
 
-		txtTK.getDocument().addDocumentListener(new DocumentListener() {
+		txtChuoi.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
 				convert();
 			}
@@ -69,15 +69,15 @@ public class Activity extends JFrame {
 			public void convert() {
 				if(!_txtMKChanged){
 					_txtTKChanged = true;
-					String txtTK_str = txtTK.getText();
+					String txtTK_str = txtChuoi.getText();
 					String txtMK_str = Morse.stringToMorseCode(txtTK_str);
-					txtMK.setText(txtMK_str);
+					txtMorseCode.setText(txtMK_str);
 					_txtTKChanged = false;
 				}
 			}
 		});
 
-		txtMK.getDocument().addDocumentListener(new DocumentListener() {
+		txtMorseCode.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
 				convert();
 			}
@@ -91,9 +91,9 @@ public class Activity extends JFrame {
 			public void convert() {
 				if(!_txtTKChanged){
 					_txtMKChanged = true;
-					String txtMK_str = txtMK.getText();
+					String txtMK_str = txtMorseCode.getText();
 					String txtTK_str = Morse.morseCodeToString(txtMK_str);
-					txtTK.setText(txtTK_str);
+					txtChuoi.setText(txtTK_str);
 					_txtMKChanged = false;
 				}
 			}
