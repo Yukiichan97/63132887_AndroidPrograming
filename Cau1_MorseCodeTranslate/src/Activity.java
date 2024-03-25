@@ -73,6 +73,7 @@ public class Activity extends JFrame {
 					String txtTK_str = txtChuoi.getText();
 					String txtMK_str = Morse.stringToMorseCode(txtTK_str);
 					txtMorseCode.setText(txtMK_str);
+					System.out.println("changed");
 					_txtTKChanged = false;
 				}
 			}
@@ -95,6 +96,7 @@ public class Activity extends JFrame {
 					String txtMK_str = txtMorseCode.getText();
 					String txtTK_str = Morse.morseCodeToString(txtMK_str);
 					txtChuoi.setText(txtTK_str);
+					System.out.println("Changed");
 					_txtMKChanged = false;
 				}
 			}
