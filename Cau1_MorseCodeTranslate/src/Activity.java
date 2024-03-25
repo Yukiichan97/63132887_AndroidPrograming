@@ -25,6 +25,7 @@ public class Activity extends JFrame {
      * Create the frame.
      */
 	public Activity() {
+		setTitle("Máy dịch mã Morse theo thời gian thực");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 663, 394);
 		contentPane = new JPanel();
