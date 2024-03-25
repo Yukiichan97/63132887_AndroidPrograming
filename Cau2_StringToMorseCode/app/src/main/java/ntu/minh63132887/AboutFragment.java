@@ -15,12 +15,11 @@ public class AboutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
-        // Tìm ImageButton trong layout và gán sự kiện click
         ImageButton githubButton = view.findViewById(R.id.github_button);
         githubButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goLink("https://github.com/Yukiichan97/63132887_AndroidPrograming");
+                goLink("https://github.com/Yukiichan97/");
             }
         });
 
@@ -29,5 +28,6 @@ public class AboutFragment extends Fragment {
     private void goLink(String s) {
         Uri uri = Uri.parse(s);
         startActivity(new Intent(Intent.ACTION_VIEW, uri));
+
     }
 }
