@@ -27,7 +27,11 @@ public class main_activity extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("cau2");
+        setTitle("cau1");
+        setMaximumSize(new java.awt.Dimension(800, 342));
+        setMinimumSize(new java.awt.Dimension(800, 342));
+        setPreferredSize(new java.awt.Dimension(800, 342));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         pack();
